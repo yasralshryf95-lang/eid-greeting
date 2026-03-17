@@ -52,7 +52,7 @@ font-size:clamp(14px,2vw,18px);
 
 .image-box img{width:100%;height:auto;border-radius:18px;}
 
-/* نسخة الكمبيوتر (مضبوطة) */
+/* نسخة الكمبيوتر (لم يتم لمسها) */
 #nameOverlay{
 position:absolute;
 left:50%;
@@ -68,11 +68,11 @@ white-space:nowrap;
 pointer-events:none;
 }
 
-/* نسخة الجوال */
+/* نسخة الجوال فقط: رفع النص 15 بكسل للأعلى */
 @media(max-width:640px){
 #nameOverlay{
-font-size:15px;          /* أصغر 10px */
-bottom:calc(14.7% - 40px); /* أعلى 5px من النسخة السابقة */
+font-size:15px;
+bottom:calc(14.7% - 25px);
 }
 }
 
