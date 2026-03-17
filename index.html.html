@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>تهنئة عيد الفطر - شركة ساطع</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Cairo:wght@700;800&display=swap" rel="stylesheet">
@@ -10,24 +11,54 @@
 <style>
 *{box-sizing:border-box;}
 
-body{margin:0;font-family:'Tajawal',sans-serif;background:#f5efe6;color:#4d3a26;}
+body{
+margin:0;
+font-family:'Tajawal',sans-serif;
+background:#f5efe6;
+color:#4d3a26;
+}
 
-.container{width:min(100%,980px);margin:auto;background:white;border-radius:24px;box-shadow:0 14px 40px rgba(0,0,0,.08);padding:24px;}
+.container{
+width:min(100%,980px);
+margin:auto;
+background:white;
+border-radius:24px;
+box-shadow:0 14px 40px rgba(0,0,0,.08);
+padding:24px;
+}
 
-.main-title{margin:0;font-family:'Cairo',sans-serif;font-size:clamp(24px,4vw,38px);font-weight:800;background:linear-gradient(90deg,#7e5a21,#d4af37,#7e5a21);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center;}
+.main-title{
+margin:0;
+font-family:'Cairo',sans-serif;
+font-size:clamp(24px,4vw,38px);
+font-weight:800;
+background:linear-gradient(90deg,#7e5a21,#d4af37,#7e5a21);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-align:center;
+}
 
-.company-subtitle{margin-top:8px;text-align:center;color:#8a6a3a;font-weight:700;font-size:clamp(14px,2vw,18px);}
+.company-subtitle{
+margin-top:8px;
+text-align:center;
+color:#8a6a3a;
+font-weight:700;
+font-size:clamp(14px,2vw,18px);
+}
 
 .preview-card{display:flex;justify-content:center;margin-top:20px;}
 
 .image-box{position:relative;width:min(100%,720px);}
 
-.image-box img{width:100%;height:auto;display:block;border-radius:18px;}
+.image-box img{width:100%;height:auto;border-radius:18px;}
 
+/* نسخة الكمبيوتر (مضبوطة) */
 #nameOverlay{
 position:absolute;
 left:50%;
 transform:translateX(-50%);
+bottom:calc(14.7% - 45px);
+width:33.2%;
 text-align:center;
 font-family:'Cairo',sans-serif;
 font-weight:800;
@@ -37,21 +68,45 @@ white-space:nowrap;
 pointer-events:none;
 }
 
-.controls{width:min(100%,520px);margin:22px auto 0;display:grid;gap:12px;}
-
-#nameInput{height:52px;border-radius:14px;border:1px solid rgba(184,138,59,.3);padding:0 16px;font-size:16px;font-family:'Tajawal',sans-serif;text-align:center;}
-
-button{min-height:52px;border:none;border-radius:16px;font-family:'Cairo',sans-serif;font-size:17px;font-weight:800;color:#fff;cursor:pointer;background:linear-gradient(135deg,#7e5a21,#c79b43,#e0bc67,#b6852f,#7e5a21);}
-
-/* تعديل الجوال: تصغير 10px ورفع 5px */
+/* نسخة الجوال */
 @media(max-width:640px){
 #nameOverlay{
-font-size:15px;
-transform:translate(-50%,4px);
+font-size:15px;          /* أصغر 10px */
+bottom:calc(14.7% - 40px); /* أعلى 5px من النسخة السابقة */
 }
+}
+
+.controls{
+width:min(100%,520px);
+margin:22px auto 0;
+display:grid;
+gap:12px;
+}
+
+#nameInput{
+height:52px;
+border-radius:14px;
+border:1px solid rgba(184,138,59,.3);
+padding:0 16px;
+font-size:16px;
+text-align:center;
+font-family:'Tajawal',sans-serif;
+}
+
+button{
+min-height:52px;
+border:none;
+border-radius:16px;
+font-family:'Cairo',sans-serif;
+font-size:17px;
+font-weight:800;
+color:#fff;
+cursor:pointer;
+background:linear-gradient(135deg,#7e5a21,#c79b43,#e0bc67,#b6852f,#7e5a21);
 }
 </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -67,7 +122,8 @@ transform:translate(-50%,4px);
 </div>
 
 <div class="controls">
-<input type="text" id="nameInput" placeholder="اكتب الاسم هنا" oninput="document.getElementById('nameOverlay').textContent=this.value">
+<input type="text" id="nameInput" placeholder="اكتب الاسم هنا"
+oninput="document.getElementById('nameOverlay').textContent=this.value">
 <button onclick="downloadGreeting()">تنزيل التهنئة</button>
 </div>
 
@@ -75,10 +131,8 @@ transform:translate(-50%,4px);
 
 <script>
 async function downloadGreeting(){
-
 const img=document.getElementById("preview");
-const overlay=document.getElementById("nameOverlay");
-const name=overlay.textContent||"";
+const name=document.getElementById("nameOverlay").textContent||"";
 
 await document.fonts.ready;
 
